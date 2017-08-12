@@ -21,12 +21,12 @@
 #endif
 
 class Unit {
-protected:
+public:
   /* data */
   int attack(Unit* target);
   void dealDamage(int dmg);
-
-  virtual void OnDestroy();
+  void wait();
+  virtual void onDestroy()=0;
 
   std::vector<Item*> Inventory;
 
@@ -49,16 +49,15 @@ protected:
   int RegManaRate;
 
 
-public:
   Unit(char* name,int str,int dx,int intt,int wis,int speed,int imm);
-  virtual ~Unit ();
+  //virtual ~Unit ();
   void updateChars();
   void prapareToMove();
   void regenerate();
   int addItemToInventory(Item* item);
   void removeItemFromInventory(int n);
   int update(std::vector<Unit*> unitList,std::vector<Item*> itemList);
-  virtual bool makeMove(std::vector<Unit*> unitList,std::vector<Item*> itemList)=0;//true if continue
+  virtual void makeMove(std::vector<Unit*> unitList,std::vector<Item*> itemList)=0;
 };
 
 #endif

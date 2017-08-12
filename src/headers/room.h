@@ -11,8 +11,8 @@ private:
   std::vector<Unit*> Unit_List;
   std::vector<Item*> Item_List;
 public:
-  Room ();
-  virtual ~Room ();
+  //Room ();
+  //virtual ~Room ();
 
   void addUnit(Unit *unit);
   void removeUnit(int n);

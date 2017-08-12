@@ -1,10 +1,10 @@
 #include "unit.h"
 #include <stdlib.h>
 
-Unit::~Unit()
+/*Unit::~Unit()
 {
 
-}
+}*/
 
 Unit::Unit(char* name,int str,int dx,int intt,int wis,int speed,int imm)
 {
@@ -46,6 +46,11 @@ void Unit::prapareToMove()
   this->MovePoints+=this->Speed;
 }
 
+void Unit::wait()
+{
+  this->MovePoints=0;
+}
+
 void Unit::regenerate()
 {
   //regeneration
@@ -80,11 +85,12 @@ void Unit::dealDamage(int dmg)
 
 int Unit::update(std::vector<Unit*> unitList,std::vector<Item*> itemList)
 {
-  while(this->makeMove(unitList,itemList))
+  while(this->MovePoints>0)
   {
+    this->makeMove(unitList,itemList);
     if(this->Hp<=0)
     {
-      this->OnDestroy();
+      this->onDestroy();
       return DESTROYED;
     }
     this->regenerate();

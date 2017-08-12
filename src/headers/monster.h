@@ -9,7 +9,8 @@ class Monster : public Unit
 {
 public:
   Monster(char* name,int str,int dx,int intt,int wis,int speed,int imm);
-  bool makeMove(std::vector<Unit*> unitList,std::vector<Item*> itemList);
+  void makeMove(std::vector<Unit*> unitList,std::vector<Item*> itemList);
+  void onDestroy();
 };
 
 #endif

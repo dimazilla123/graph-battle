@@ -1,13 +1,13 @@
-LIBS=-lncurses
+LIBS=
 CXX=g++
 
 HEADERS=src/headers/
 SOURCES=src/
 OBJDIR=obj/
 
-OBJS=
+OBJS=main.o room.o item.o unit.o monster.o player.o
 
-CXXFLAGS=-I $(HEADERS) -w -g
+CXXFLAGS=-I $(HEADERS)  -w -g
 
 OBJLIST=$(addprefix $(OBJDIR),$(OBJS))
 OUTPUT=main
@@ -20,5 +20,5 @@ $(OUTPUT): $(OBJLIST)
 	$(CXX) $(OBJLIST) $(LIBS) $(LDFLAGS) -o $@
 all: $(OUTPUT)
 clean:
-	rm obj/*
+	rm $(OBJLIST)
 	rm $(OUTPUT)

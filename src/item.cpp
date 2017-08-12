@@ -2,7 +2,7 @@
 
 Item::Item(char* name,int str,int dx,int intt,int wis,int speed,int imm)
 {
-  this->name=name;
+  this->Name=name;
   this->Str=str;
   this->Dx=dx;
   this->Intt=intt;
@@ -13,5 +13,5 @@ Item::Item(char* name,int str,int dx,int intt,int wis,int speed,int imm)
 
 Item::~Item()
 {
-  
+
 }
